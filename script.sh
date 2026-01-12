@@ -36,6 +36,7 @@ SIZE=100
 SUM=0
 MAX=0
 
+echo "100 numbers"
 for i in $(seq 1 $COUNT)
 do
     ARG=$(python3 generate.py $SIZE)
