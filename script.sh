@@ -5,6 +5,35 @@ SIZE=5  # how many numbers to generate
 SUM=0     # total number of instructions
 MAX=0     # worst case (maximum instructions)
 
+
+echo "edge cases"
+ARG=$(python3 generate.py edge)
+echo "Args: $ARG"
+./push_swap $ARG | ./checker_linux $ARG
+INSTR=$(./push_swap $ARG | wc -l)
+echo "Number of instructions: $INSTR"
+
+echo "=========================="
+echo "OVERFLOW CASES"
+ARG=$(python3 generate.py overflow)
+echo "Args: $ARG"
+OUT=$(./push_swap $ARG 2>&1)
+CODE=$?
+
+echo "Exit code: $CODE"
+echo "Output: $OUT"
+
+echo "========================="
+ARG=$(python3 generate.py big_overflow)
+echo "Args: $ARG"
+OUT=$(./push_swap $ARG 2>&1)
+CODE=$?
+
+echo "Exit code: $CODE"
+echo "Output: $OUT"
+
+
+echo "========================="
 echo "5 numbers"
 for i in $(seq 1 $COUNT)
 do
