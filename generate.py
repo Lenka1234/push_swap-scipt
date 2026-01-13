@@ -3,6 +3,7 @@ import sys
 
 INT_MIN = -2147483648
 INT_MAX = 2147483647
+ULLONG_MAX = 18446744073709551615
 
 
 def generate_numbers(count, min_val=-100000, max_val=100000):
@@ -21,7 +22,7 @@ def big_overflow():
     return [
         25,
         -0,
-        9999999999999999999999999999999999999999999999999999999999999999,
+        ULLONG_MAX,
         13,
         -1259,
         7,
