@@ -9,15 +9,15 @@ MAX=0     # worst case (maximum instructions)
 echo "EDGE CASES"
 ARG=$(python3 generate.py edge)
 echo "Args: $ARG"
-./push_swap $ARG | ./checker_linux $ARG
-INSTR=$(./push_swap $ARG | wc -l)
+./../push_swap $ARG | ./../checker_linux $ARG
+INSTR=$(./../push_swap $ARG | wc -l)
 echo "Number of instructions: $INSTR"
 
 echo "=========================="
 echo "OVERFLOW CASES"
 ARG=$(python3 generate.py overflow)
 echo "Args: $ARG"
-OUT=$(./push_swap $ARG 2>&1)
+OUT=$(./../push_swap $ARG 2>&1)
 
 echo "Output: $OUT"
 
@@ -25,7 +25,7 @@ echo "========================="
 echo "OVERFLOW WITH ULLONG_MAX"
 ARG=$(python3 generate.py big_overflow)
 echo "Args: $ARG"
-OUT=$(./push_swap $ARG 2>&1)
+OUT=$(./../push_swap $ARG 2>&1)
 
 echo "Output: $OUT"
 
@@ -36,9 +36,9 @@ do
     ARG=$(python3 generate.py $SIZE)
 
     echo "Test $i:"
-    ./push_swap $ARG | ./checker_linux $ARG
+    ./../push_swap $ARG | ./../checker_linux $ARG
 
-    INSTR=$(./push_swap $ARG | wc -l)
+    INSTR=$(./../push_swap $ARG | wc -l)
     echo "Number of instructions: $INSTR"
     echo
     SUM=$((SUM + INSTR))
@@ -67,9 +67,9 @@ do
     ARG=$(python3 generate.py $SIZE)
 
     echo "Test $i:"
-    ./push_swap $ARG | ./checker_linux $ARG
+    ./../push_swap $ARG | ./../checker_linux $ARG
 
-    INSTR=$(./push_swap $ARG | wc -l)
+    INSTR=$(./../push_swap $ARG | wc -l)
     echo "Number of instructions: $INSTR"
     echo
     SUM=$((SUM + INSTR))
@@ -97,9 +97,9 @@ do
     ARG=$(python3 generate.py $SIZE)
 
     echo "Test $i:"
-    ./push_swap $ARG | ./checker_linux $ARG
+    ./../push_swap $ARG | ./../checker_linux $ARG
 
-    INSTR=$(./push_swap $ARG | wc -l)
+    INSTR=$(./../push_swap $ARG | wc -l)
     echo "Number of instructions: $INSTR"
     echo
     SUM=$((SUM + INSTR))
